@@ -14,7 +14,7 @@ class CreateModelsressellersTable extends Migration
     public function up()
     {
         Schema::create('ressellers', function (Blueprint $table) {
-            $table->unsignedInteger('id');
+            $table->foreign('id')->references('id')->on('referentials')->onDelete('cascade');
             $table->string('name');
             $table->unsignedInteger('parent_id')->nullable();
         });

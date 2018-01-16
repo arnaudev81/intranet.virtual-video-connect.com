@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateLocationDetailsTable extends Migration
+class CreateTextsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,11 @@ class CreateLocationDetailsTable extends Migration
      */
     public function up()
     {
-        Schema::create('location_details', function (Blueprint $table) {
+        Schema::create('texts', function (Blueprint $table) {
             $table->foreign('id')->references('id')->on('referentials')->onDelete('cascade');
-            $table->string('country',2);
-            $table->string('city',60);
-            $table->string('zip_code',10);
-            $table->string('address');
-            $table->string('sector');
-            $table->float('latitude');
-            $table->float('longitude');
+            $table->string('language',2);
+            $table->string('title');
+            $table->string('description',4000);
         });
     }
 
@@ -32,6 +28,6 @@ class CreateLocationDetailsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('location_details');
+        Schema::dropIfExists('texts');
     }
 }

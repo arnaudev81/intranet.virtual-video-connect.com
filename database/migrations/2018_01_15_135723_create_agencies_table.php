@@ -14,7 +14,7 @@ class CreateAgenciesTable extends Migration
     public function up()
     {
         Schema::create('agencies', function (Blueprint $table) {
-            $table->unsignedInteger('id');
+            $table->foreign('id')->references('id')->on('referentials')->onDelete('cascade');
             $table->integer('customer_id');
             $table->string('name');
             $table->string('legal_name');

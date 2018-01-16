@@ -14,9 +14,9 @@ class CreatePicturesTable extends Migration
     public function up()
     {
         Schema::create('pictures', function (Blueprint $table) {
-            $table->unsignedInteger('id');
+            $table->foreign('id')->references('id')->on('referentials')->onDelete('cascade');
             $table->enum('extension', ['jpg', 'png'])->default('jpg');
-            $table->unsignedInteger('owner_id');
+            $table->integer('owner_id');
             $table->string('picture_url');
             $table->unsignedInteger('position');
         });

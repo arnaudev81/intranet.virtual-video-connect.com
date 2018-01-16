@@ -14,7 +14,7 @@ class CreateCustomersTable extends Migration
     public function up()
     {
         Schema::create('customers', function (Blueprint $table) {
-            $table->unsignedInteger('id');
+            $table->foreign('id')->references('id')->on('referentials')->onDelete('cascade');
             $table->integer('resseller_id');
             $table->string('name');
         });

@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Referential extends Model
+class Real_estate_listing_bools extends Model
 {
     //
 }

@@ -14,9 +14,9 @@ class CreateRealEstateListingsTable extends Migration
     public function up()
     {
         Schema::create('real_estate_listings', function (Blueprint $table) {
-            $table->unsignedInteger('listing_id');
-            $table->string('reference');
-            $table->string('mandate_number');
+            $table->foreign('id')->references('id')->on('listings')->onDelete('cascade');
+            $table->string('reference',50);
+            $table->string('mandate_number',50);
             $table->date('mandate_date');
             $table->unsignedTinyInteger('real_estate_type_id');
             $table->unsignedTinyInteger('real_estate_transaction_type_id');

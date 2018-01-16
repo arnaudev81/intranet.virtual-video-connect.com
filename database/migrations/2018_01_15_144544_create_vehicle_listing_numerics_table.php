@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateVehiculeListingNumericsTable extends Migration
+class CreateVehicleListingNumericsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class CreateVehiculeListingNumericsTable extends Migration
      */
     public function up()
     {
-        Schema::create('vehicule_listing_numerics', function (Blueprint $table) {
-            $table->unsignedInteger('listing_id');
+        Schema::create('vehicle_listing_numerics', function (Blueprint $table) {
+            $table->foreign('id')->references('id')->on('listings')->onDelete('cascade');
             $table->unsignedTinyInteger('fiscal_power');
             $table->unsignedInteger('real_power');
             $table->unsignedInteger('cylinder');

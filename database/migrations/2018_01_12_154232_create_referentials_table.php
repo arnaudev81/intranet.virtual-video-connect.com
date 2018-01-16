@@ -15,8 +15,7 @@ class CreateReferentialsTable extends Migration
     {
         Schema::create('referentials', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('item_type');
-            $table->integer('status');
+            $table->enum('item_type', ['resseller', 'user','customer','agency','sale_person','listing','picture']);
             $table->timestamps();
             $table->json('settings');
         });

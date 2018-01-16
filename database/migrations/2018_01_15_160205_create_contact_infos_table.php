@@ -14,9 +14,9 @@ class CreateContactInfosTable extends Migration
     public function up()
     {
         Schema::create('contact_infos', function (Blueprint $table) {
-            $table->unsignedInteger('id');
-            $table->string('phone');
-            $table->string('mobile_phone');
+            $table->foreign('id')->references('id')->on('referentials')->onDelete('cascade');
+            $table->string('phone',50);
+            $table->string('mobile_phone',50);
             $table->string('email');
         });
     }

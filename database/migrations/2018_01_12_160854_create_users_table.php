@@ -15,12 +15,13 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->unsignedInteger('id');
+            $table->foreign('id')->references('id')->on('referentials')->onDelete('cascade');
             $table->string('name');
             $table->string('login')->unique();
             $table->string('password');
             $table->rememberToken();
-            $table->enum('access_type', ['intranet', 'agency','sale_person'])->default('user');
-            $table->integer('parent_id');
+            $table->enum('access_type', ['intranet', 'admin','agency','sale_person'])->default('admin');
+            $table->integer('parent_id')->nullable();
         });
     }
 

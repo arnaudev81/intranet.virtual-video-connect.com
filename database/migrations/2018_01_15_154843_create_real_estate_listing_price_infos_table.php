@@ -14,8 +14,8 @@ class CreateRealEstateListingPriceInfosTable extends Migration
     public function up()
     {
         Schema::create('real_estate_listing_price_infos', function (Blueprint $table) {
-            $table->unsignedInteger('listing_id');
-            $table->string('currency');
+            $table->foreign('id')->references('id')->on('listings')->onDelete('cascade');
+            $table->string('currency',3);
             $table->unsignedInteger('price');
             $table->unsignedInteger('hidden_price');
             $table->float('rental_cc');

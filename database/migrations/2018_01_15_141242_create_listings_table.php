@@ -14,7 +14,7 @@ class CreateListingsTable extends Migration
     public function up()
     {
         Schema::create('listings', function (Blueprint $table) {
-            $table->unsignedInteger('id');
+            $table->foreign('id')->references('id')->on('referentials')->onDelete('cascade');
             $table->integer('agency_id');
             $table->integer('sale_person_id');
             $table->enum('category', ['vehicle', 'real-estate'])->default('vehicle');

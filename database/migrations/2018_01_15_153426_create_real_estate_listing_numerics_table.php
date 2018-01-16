@@ -14,7 +14,7 @@ class CreateRealEstateListingNumericsTable extends Migration
     public function up()
     {
         Schema::create('real_estate_listing_numerics', function (Blueprint $table) {
-            $table->unsignedInteger('listing_id');
+            $table->foreign('id')->references('id')->on('listings')->onDelete('cascade');
             $table->unsignedTinyInteger('room');
             $table->unsignedTinyInteger('bedroom');
             $table->unsignedTinyInteger('bathroom');
